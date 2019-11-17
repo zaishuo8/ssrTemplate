@@ -2,6 +2,7 @@ import React from 'react'
 import './index.less'
 import { Link } from "react-router-dom";
 import {mockData, proxyLogin} from '../../services/mock';
+import {getRuntime} from "../../utils/net/utils";
 
 class ClassComponentExample extends React.PureComponent {
     constructor(props) {
@@ -19,6 +20,7 @@ class ClassComponentExample extends React.PureComponent {
                 <Link to={`/`}><div style={{color: 'black'}}>前往首页</div></Link>
                 <div onClick={async () => {
                     const result = await proxyLogin({ username: '10086', password: '123456' });
+                    localStorage.setItem('userInfo', JSON.stringify(result));
                     console.log(result);
                 }}>点击登录</div>
             </div>
@@ -29,10 +31,7 @@ class ClassComponentExample extends React.PureComponent {
 ClassComponentExample.getInitialProps = (ctx) => {
     console.log('getInitialProps');
 
-    const userInfo = ctx.cookies.get('user_info');
-    console.log(userInfo);
-
-    return mockData();
+    return mockData(ctx);
 };
 
 export default ClassComponentExample

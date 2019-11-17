@@ -4,6 +4,7 @@ import { BrowserRouter, StaticRouter, Route } from 'react-router-dom'
 import defaultLayout from '@/layout'
 import { getWrappedComponent, getComponent } from 'ykfe-utils'
 import { routes as Routes } from '../config/config.ssr'
+import 'antd/dist/antd.css';
 
 const clientRender = async () => {
   // 客户端渲染||hydrate

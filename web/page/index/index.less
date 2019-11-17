@@ -1,19 +1,99 @@
-.list {
-    background-color: #fff;
-    width: 1000px;
-    margin: 100px auto;
-    li {
-        display: flex;
-        justify-content: space-between;
-        background-color: #fff;
-        padding: 20px 30px 20px 80px;
-        border-bottom: 1px solid #eee;
-        position: relative;
-        line-height: 20px;
-        .toDetail a{
-            font-size: 14px;
-            color: #888
-        }
-    }
+#container{
+  display: flex;
+  flex-direction: column;
 }
 
+#headerContainer{
+  display: flex;
+  width: 1100px;
+  height: 70px;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+  align-self: center;
+  flex-direction: row;
+  align-items: center;
+
+  #logo{
+    width: 80px;
+    height: 30px;
+    margin-right: 40px;
+  }
+
+  #location{
+    width: 12px;
+    height: 14px;
+    margin-right: 5px;
+  }
+
+  #city{
+    color: hsla(0, 0%, 100%, .8);
+    font-size: 14px;
+  }
+
+  #statusContain{
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+
+    #myInfo{
+      width: 12px;
+      height: 14px;
+      margin-right: 10px;
+    }
+
+    #photo{
+      width: 24px;
+      height: 24px;
+      border-radius: 12px;
+      border: none;
+      margin-right: 4px;
+    }
+
+    .text{
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .logout{
+      cursor: pointer;
+    }
+  }
+}
+
+#bannerListContainer{
+  height: 650px;
+
+  .bannerContain {
+    height: 650px;
+    overflow: hidden;
+
+    .bg{
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100% 100%;
+    }
+
+    #mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      bottom: 6px;
+      background: rgb(0, 0, 0);
+      opacity: 0.04;
+      z-index: 98;
+    }
+  }
+
+  /*#searchContainer{
+    position: absolute;
+    width: 600px;
+    height: 57px;
+  }*/
+}

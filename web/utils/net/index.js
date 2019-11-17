@@ -5,15 +5,24 @@ import { stringify } from 'qs';
 import { getRuntime } from "./utils";
 import env from '../../config/env';
 import {hosts, proxyHosts} from '../../config';
+import {getExtendHeaders} from './utils';
 
 const fetch = getRuntime() === 'node' ? serverFetch : clientFetch;
 
-function request(api, options) {
+/**
+ * @param api {string|object} uri 或者 api 配置对象
+ * @param options {object} [options]
+ * @param ctx {object} 服务端调用时用到 ctx
+ *
+ * return Promise
+ * */
+function request(api, options, ctx) {
 
     const requestOptions = {
         // 公共请求头，默认超时时间
         headers: {
             'Content-Type': 'application/json',
+            ...getExtendHeaders(ctx)
         },
         timeout: 3000,
     };

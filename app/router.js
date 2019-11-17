@@ -8,6 +8,8 @@ module.exports = app => {
     router.get(`${route.path}`, controller[route.controller][route.handler])
   });
 
+  router.get('/', controller.proxy.login);
+
   // proxy 路由
   router.post('/proxy/login', controller.proxy.login);
 

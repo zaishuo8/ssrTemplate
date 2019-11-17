@@ -12,7 +12,7 @@ const hosts = {
     },
     prod: {
         admin: 'http://asman.prod.com',
-        protal: 'http://asman.prod.com',
+        protal: 'http://portal.asman.com.cn',
     },
 };
 

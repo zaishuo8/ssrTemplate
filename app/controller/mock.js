@@ -6,12 +6,8 @@ class MockController extends Controller {
 
         console.log('==== userInfo api ====');
 
-        console.log('params');
-        console.log(ctx.params);
-        console.log('query');
-        console.log(ctx.query);
-        console.log('body');
-        console.log(ctx.request.body);
+        console.log(ctx.request.headers['x-access-token']);
+        console.log(ctx.request.headers['x-user-id']);
 
         ctx.body = {
             mockData: 'mooooock'
@@ -22,7 +18,6 @@ class MockController extends Controller {
         const { ctx } = this;
 
         console.log('==== true login api ====');
-        console.log(ctx.request.body);
 
         ctx.body = {
             token: 'token_token_token',
