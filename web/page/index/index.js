@@ -4,19 +4,19 @@ import './index.less'
 
 function Page (props) {
   return (
-    <div className='normal'>
-      <div className='welcome' />
-      <ul className='list'>
-        {
-          props.news && props.news.map(item => (
-            <li key={item.id}>
-              <div>文章标题: {item.title}</div>
-              <div className='toDetail'><Link to={`/news/${item.id}`}>点击查看详情</Link></div>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
+      <div className='normal'>
+        <div className='welcome' />
+        <ul className='list'>
+          {
+            props.news && props.news.map(item => (
+                <li key={item.id}>
+                  <div>文章标题: {item.title}</div>
+                  <div className='toDetail'><Link to={`/news/${item.id}`}>点击查看详情</Link></div>
+                </li>
+            ))
+          }
+        </ul>
+      </div>
   )
 }
 
@@ -42,5 +42,6 @@ Page.getInitialProps = (ctx) => {
       }
     ]
   })
-}
+};
+
 export default Page

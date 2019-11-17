@@ -1,4 +1,4 @@
-const resolvePath = (path) => require('path').resolve(__dirname, path)
+const resolvePath = (path) => require('path').resolve(__dirname, path);
 
 module.exports = {
   type: 'ssr', // 指定运行类型可设置为csr切换为客户端渲染
@@ -16,7 +16,22 @@ module.exports = {
       Component: () => (require('@/page/news').default),
       controller: 'page',
       handler: 'index'
-    }
+    },
+    {
+      path: '/test',
+      exact: true,
+      Component: () => (require('@/page/test').default),
+      controller: 'page',
+      handler: 'index'
+    },
+    /*{
+      // hook 暂时不能用
+      path: '/hook_component',
+      exact: true,
+      Component: () => (require('@/page/hook_example').default),
+      controller: 'page',
+      handler: 'index'
+    }*/
   ],
   baseDir: resolvePath('../'),
   injectCss: [
@@ -28,4 +43,4 @@ module.exports = {
     `<script src='/static/js/Page.chunk.js'></script>`
   ], // 客户端需要加载的静态资源文件表
   serverJs: resolvePath(`../dist/Page.server.js`)
-}
+};
