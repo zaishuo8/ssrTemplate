@@ -28,6 +28,10 @@ class ClassComponentExample extends React.PureComponent {
 
 ClassComponentExample.getInitialProps = (ctx) => {
     console.log('getInitialProps');
+
+    const userInfo = ctx.cookies.get('user_info');
+    console.log(userInfo);
+
     return mockData();
 };
 

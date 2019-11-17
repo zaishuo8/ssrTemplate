@@ -26,6 +26,8 @@ class ProxyController extends Controller {
             console.log('proxy login result');
             console.log(result.data);
 
+            ctx.cookies.set('user_info', JSON.stringify(result.data));
+
             ctx.body = result.data;
 
         } catch (e) {
